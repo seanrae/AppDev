@@ -1,0 +1,25 @@
+## Arduino Library Requirements
+
+Before uploading the code, ensure the following libraries are installed in the **Arduino IDE**:
+
+1. **Adafruit Fingerprint Sensor Library**
+   - Go to **Sketch > Include Library > Manage Libraries...**
+   - Search for **Adafruit Fingerprint Sensor Library** and install it.
+
+2. **SoftwareSerial Library** (usually pre-installed with Arduino IDE)
+
+---
+
+## Fingerprint Enrollment Guide
+
+To register fingerprints into the sensor:
+
+1. Open the **Arduino IDE** and upload the **enroll** example sketch found in:
+   - `File > Examples > Adafruit Fingerprint Sensor Library > enroll`
+
+2. Open the **Serial Monitor**, set the baud rate to **9600**, and follow the prompts:
+   - Enter a unique ID for each fingerprint.
+   - Place and remove your finger as instructed.
+   - Once enrolled, these fingerprints can be recognized in the main program.
+
+---
