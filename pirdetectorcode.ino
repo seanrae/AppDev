@@ -16,9 +16,9 @@ SoftwareSerial fingerSerial(2, 3);
 Adafruit_Fingerprint finger(&fingerSerial);
 
 // SIM800L setup
-SoftwareSerial sim800(9, 10); // SIM800L TX = D9, RX = D10
+SoftwareSerial sim800(9, 10);
 
-String phoneNumber = "+639073061321";  // ✅ Updated phone number
+String phoneNumber = "+639073061321";  
 
 void setup() {
   pinMode(ledPin, OUTPUT);
@@ -56,7 +56,7 @@ void setup() {
 void loop() {
   unsigned long currentMillis = millis();
 
-  // Handle suppression timer expiration
+  //supression
   if (motionSuppressed && (currentMillis - suppressionStart >= suppressionDuration)) {
     motionSuppressed = false;
     Serial.println("15-second suppression ended. Motion will now trigger alarm.");
@@ -65,7 +65,7 @@ void loop() {
   // Handle fingerprint scan
   if (checkFingerprint()) {
     if (alarmActive) {
-      // Deactivate alarm if it was sounding
+     
       stopAlarm();
       sendSMS("Alarm deactivated by authorized fingerprint.");
     } else {
@@ -126,7 +126,7 @@ void sendSMS(String message) {
   delay(300);
   sim800.println(message);    // Send message content
   delay(300);
-  sim800.write(26);           // Ctrl+Z to send
+  sim800.write(26);          
   delay(1000);
 
   // Log to Serial Monitor
